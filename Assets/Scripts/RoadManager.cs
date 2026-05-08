@@ -11,7 +11,6 @@ public class RoadManager : MonoBehaviour
     void Start()
     {
         Renderer r = roads[0].GetComponentInChildren<Renderer>();
-
         if (r != null)
         {
             roadLength = r.bounds.size.z;
