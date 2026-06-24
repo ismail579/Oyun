@@ -6,6 +6,7 @@ TagManager:
   tags:
   - cars
   - Cars
+  - Cheese
   layers:
   - Default
   - TransparentFX
