@@ -6,28 +6,18 @@ public class CarMover : MonoBehaviour
 
     void Update()
     {
-        // Eğer carSpeed 0 ise araba hareket etmez
+        // Ufak bir tavsiye: carSpeed değerini Time.deltaTime ile çarpmak 
+        // arabanın her bilgisayarda aynı hızda gitmesini sağlar. (Örn: carSpeed * Time.deltaTime)
         transform.Translate(0, 0, carSpeed);
     }
 
+    // OnTriggerEnter yerine OnCollisionEnter kullanıyoruz (katı çarpışma için)
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // 1. Arabanın hızını sıfırla
+            // Arabanın hızını sıfırla (Çarpınca araba da dursun)
             carSpeed = 0f;
-
-            // 2. Karakterin hareket scriptini kapat
-            var playerMovement = other.GetComponent<MonoBehaviour>(); // Scriptin adını doğru bulması için
-            if (playerMovement != null)
-            {
-                playerMovement.enabled = false;
-            }
-
-            // 3. EN ÖNEMLİSİ: İkisinin de collider'ını kapat ki birbirlerinin içinden geçemesinler
-            // Çarpışma anında fiziksel etkileşimi tamamen kesiyoruz
-            this.GetComponent<Collider>().enabled = false;
-            other.GetComponent<Collider>().enabled = false;
         }
     }
 }

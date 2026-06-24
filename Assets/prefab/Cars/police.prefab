@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ad6b66914019c4a47ab5f0c1cca5e6db, type: 3}
       propertyPath: m_TagString
-      value: cars
+      value: Cars
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
